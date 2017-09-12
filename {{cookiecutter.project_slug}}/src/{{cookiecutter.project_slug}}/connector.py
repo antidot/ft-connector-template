@@ -8,5 +8,5 @@ class {{cookiecutter.class_name}}(Connector):
         self.client = client
         self.configuration = configuration
 
-    def transform(self, zipfile: ZipFile):
+    def transform(self, data: ZipFile):
         pass
