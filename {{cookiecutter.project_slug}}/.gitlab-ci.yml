@@ -1,0 +1,77 @@
+stages:
+  - build
+  - test
+  - prepare
+  - package
+  - repo_build
+
+
+build:
+  stage: build
+  image: python:3.5
+  script:
+    - pip install wheel
+    - python3 setup.py sdist bdist_wheel
+  artifacts:
+    paths:
+      - dist
+    expire_in: 1 day
+
+
+test:
+  stage: test
+  image: python:3.5
+  script:
+    - pip install -r requirements.txt
+    - pip install dist/*.whl
+    - pip3 show {{cookiecutter.project_slug}} | grep 'Version:' | cut -c 10- > version
+    - cd tests && pytest
+  artifacts:
+    paths:
+      - version
+    expire_in: 1 day
+
+
+prepare34:
+  stage: prepare
+  image: registry.antidot.net/jgiard/python-v7.8
+  script:
+    - mkdir install34
+    - pip install dist/*.whl --no-deps --prefix=install34
+  artifacts:
+    paths:
+      - install34
+    expire_in: 3 day
+
+
+package:
+  stage: package
+  image: registry.antidot.net/tools/pack_me_up:3.5
+  script:
+    - export WHL_DEST34=/data/all/antidot-v78-python-3.4-{{cookiecutter.project_slug}}-connector/contrib/v7.8/python/3.4/
+    - mkdir -p ${WHL_DEST34}
+    - cp -r install34/* ${WHL_DEST34}
+    - export BUILD_ID=$((${CI_PIPELINE_ID}-1))
+    - export VERSION=$(cat version)
+    - packmeup -s packaging/packages -g /data -o pmu/ -d wheezy -R ${BUILD_ID} -v ${VERSION}
+    - packmeup -s packaging/packages -g /data -o pmu/ -d rhel6 -R ${BUILD_ID} -v ${VERSION}
+  artifacts:
+    paths:
+      - pmu
+    expire_in: 1 day
+
+
+repo_build:
+  stage: repo_build
+  image: registry.antidot.net/tools/createrepository:3.5
+  script:
+    - create_repository.py -c packaging/repository/repo_deb.xml -r repo/wheezy -t stable -n {{cookiecutter.project_slug}} -p foo -d deb --sign -vv
+    - create_repository.py -c packaging/repository/repo_rhel.xml -r repo/rhel6 -t stable -n {{cookiecutter.project_slug}} -p foo -d rpm --sign -vv
+  artifacts:
+    paths:
+      - repo
+    expire_in: 1 day
+
+# you may add a step to push your repo somewhere when it is ready?
+# rsync -avz --delete repo/wheezy/repository/ packager@packages.intranet.anticorp:/data/local/www/repository/{{cookiecutter.connector_name}}/wheezy/last
+# rsync -avz --delete repo/rhel6/repository/ packager@packages.intranet.anticorp:/data/local/www/repository/{{cookiecutter.connector_name}}/rhel6/last

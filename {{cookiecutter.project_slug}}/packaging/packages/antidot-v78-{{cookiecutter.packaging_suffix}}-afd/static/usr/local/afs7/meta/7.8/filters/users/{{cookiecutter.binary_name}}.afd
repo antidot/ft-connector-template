@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Filter xmlns="http://ref.antidot.net/v7/afs#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://ref.antidot.net/v7/afs# http://ref.antidot.net/v7.8/filter.xsd"
+    uri="filter:user:{{cookiecutter.binary_name}}"
+    exe="{{cookiecutter.binary_name}}"
+    type="visitor"
+    category="misc"
+    label="{{cookiecutter.connector_name}}"
+    singleton="false"
+    pkg="antidot-v78-{{cookiecutter.packaging_suffix}}-afd">
+
+    <description>{{cookiecutter.connector_name}}</description>
+</Filter>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<afs:PaF name="$AFS7_NAME" service="$AFS7_SERVICEID"
+         status="$AFS7_STATUS" xmlns:afs="http://ref.antidot.net/v7/afs#">
+    <afs:pipe disable="false" name="{{cookiecutter.paf_name}}" uri="{{cookiecutter.project_slug}}">
+        <afs:filter comment="{{cookiecutter.paf_name}}" disable="false" exe="{{cookiecutter.binary_name}}"
+                    instances="1" source="true" type="user_1" uri="process"/>
+    </afs:pipe>
+</afs:PaF>

@@ -1,0 +1,9 @@
+{
+    "afs:t": "bows.paf.option",
+    "actived": true,
+    "secured": true,
+    "warehouse": false,
+    "inMemory": true,
+    "mode": "DATADRIVEN",
+    "input": [ ]
+}

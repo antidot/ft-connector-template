@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package xmlns="http://ref.antidot.net/v7/afs#">
+    <name>antidot-v78-python-3.4-{{cookiecutter.packaging_suffix}}</name>
+    <description>Python package for {{cookiecutter.connector_name}}</description>
+    <maintainer>Antidot &lt;support@antidot.net&gt;</maintainer>
+    <dependencies>
+        <depends>antidot-v78-python-3.4</depends>
+        <depends>antidot-v78-python-3.4-fluid-api</depends>
+    </dependencies>
+</package>
+

@@ -1,0 +1,10 @@
+{
+  "connector_name": "Ftml",
+  "project_slug": "{{ cookiecutter.connector_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "class_name": "{{ cookiecutter.connector_name.replace(' ', '') }}Connector",
+  "binary_name": "ftc_{{cookiecutter.project_slug}}_filter",
+  "packaging_suffix": "{{cookiecutter.project_slug}}-connector",
+  "paf_name": "{{cookiecutter.connector_name.replace(' ', '')|capitalize}}",
+  "project_short_description": "Fluid Topics Connector for {{cookiecutter.connector_name}}.",
+  "version": "1.0"
+}

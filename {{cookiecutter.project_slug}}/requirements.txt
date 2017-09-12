@@ -1,0 +1,5 @@
+--index-url https://pip.antidot.net/root/unstable/+simple/
+
+pytest
+wheel
+fluid-api

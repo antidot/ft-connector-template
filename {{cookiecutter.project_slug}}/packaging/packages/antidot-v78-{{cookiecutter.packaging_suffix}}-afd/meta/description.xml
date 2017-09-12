@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<package xmlns="http://ref.antidot.net/v7/afs#">
+    <name>antidot-v78-{{cookiecutter.packaging_suffix}}-afd</name>
+    <description>AFD for {{cookiecutter.connector_name}}</description>
+    <maintainer>Antidot &lt;support@antidot.net&gt;</maintainer>
+</package>
+
