@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <package xmlns="http://ref.antidot.net/v7/afs#">
-    <name>antidot-v78-{{cookiecutter.packaging_suffix}}</name>
+    <name>antidot-{{cookiecutter.packaging_suffix}}</name>
     <description>{{cookiecutter.connector_name}} Meta Package</description>
     <maintainer>Antidot &lt;support@antidot.net&gt;</maintainer>
     <dependencies>
         <depends>antidot-v78-python-3.4-{{cookiecutter.packaging_suffix}}</depends>
-        <depends>antidot-v78-{{cookiecutter.packaging_suffix}}-afd</depends>
-        <depends>antidot-v78-{{cookiecutter.packaging_suffix}}-paf</depends>
+        <depends>antidot-{{cookiecutter.packaging_suffix}}-afd</depends>
+        <depends>antidot-{{cookiecutter.packaging_suffix}}-paf</depends>
     </dependencies>
 </package>
 

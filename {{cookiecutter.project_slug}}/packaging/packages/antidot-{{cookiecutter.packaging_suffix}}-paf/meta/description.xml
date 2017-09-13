@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package xmlns="http://ref.antidot.net/v7/afs#">
+    <name>antidot-{{cookiecutter.packaging_suffix}}-paf</name>
+    <description>Paf Configuration for {{cookiecutter.connector_name}}</description>
+    <maintainer>Antidot &lt;support@antidot.net&gt;</maintainer>
+    <dependencies>
+        <depends>antidot-v78-python-3.4-{{cookiecutter.packaging_suffix}}</depends>
+        <depends>antidot-{{cookiecutter.packaging_suffix}}-afd</depends>
+    </dependencies>
+</package>

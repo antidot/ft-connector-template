@@ -8,7 +8,7 @@
     category="misc"
     label="{{cookiecutter.connector_name}}"
     singleton="false"
-    pkg="antidot-v78-{{cookiecutter.packaging_suffix}}-afd">
+    pkg="antidot-{{cookiecutter.packaging_suffix}}-afd">
 
     <description>{{cookiecutter.connector_name}}</description>
 </Filter>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <configuration name="Antidot Fluid-API Repository">
     <required_packages>
-        <package>antidot-v78-{{cookiecutter.packaging_suffix}}</package>
+        <package>antidot-{{cookiecutter.packaging_suffix}}</package>
         <package>antidot-v78-python-3.4-{{cookiecutter.packaging_suffix}}</package>
-        <package>antidot-v78-{{cookiecutter.packaging_suffix}}-afd</package>
-        <package>antidot-v78-{{cookiecutter.packaging_suffix}}-paf</package>
+        <package>antidot-{{cookiecutter.packaging_suffix}}-afd</package>
+        <package>antidot-{{cookiecutter.packaging_suffix}}-paf</package>
     </required_packages>
     <packages_directories>
         <dir>pmu/packages/wheezy/</dir>
